@@ -1,0 +1,81 @@
+[gd_scene load_steps=9 format=3 uid="uid://43vqxv4m5e1y"]
+
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_4opga"]
+[ext_resource type="Texture2D" uid="uid://c60awuogjlpgj" path="res://assets/Coin_Gems/MonedaD.png" id="2_kgrd5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwwxe"]
+atlas = ExtResource("2_kgrd5")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1c7p"]
+atlas = ExtResource("2_kgrd5")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8ysv"]
+atlas = ExtResource("2_kgrd5")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mq7im"]
+atlas = ExtResource("2_kgrd5")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqfwd"]
+atlas = ExtResource("2_kgrd5")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h4puc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fwwxe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q1c7p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8ysv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mq7im")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqfwd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="GameManager" type="Node"]
+script = ExtResource("1_4opga")
+
+[node name="GUI" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="CoinsValue" type="Label" parent="GUI"]
+offset_left = 931.0
+offset_top = -8.0
+offset_right = 1095.0
+offset_bottom = 75.0
+theme_override_font_sizes/font_size = 60
+text = "0"
+horizontal_alignment = 2
+
+[node name="ScoreValue" type="Label" parent="GUI"]
+offset_left = 998.0
+offset_top = 76.0
+offset_right = 1137.0
+offset_bottom = 159.0
+theme_override_font_sizes/font_size = 40
+text = "0"
+horizontal_alignment = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GUI"]
+position = Vector2(1127, 37)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_h4puc")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+
+[node name="SoundFX" type="AudioStreamPlayer2D" parent="."]
+volume_db = -3.67
